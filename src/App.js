@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import UserPage from "./components/UserPage";
+import { BrowserRouter as Router, Routes, Route, NavLink } from "react-router-dom";
+import {Box, Container} from "@mui/material"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component{
+
+  render(){
+
+    return <Box>
+              <Container>
+                <Router>
+                  <Routes>
+                    <Route path="/user" element={<UserPage></UserPage>}></Route>
+                    <Route path="/" element={
+                      <>
+                        <nav>
+                          <ol>
+                            <li>
+                              <NavLink to="/user">Lista de Usuarios</NavLink> 
+                            </li>
+                          </ol>
+                        </nav>
+                      </>
+                    }></Route>
+                  </Routes>
+                </Router>
+              </Container>
+            </Box> 
+  }
+
+
 }
-
-export default App;
