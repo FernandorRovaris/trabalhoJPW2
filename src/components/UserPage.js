@@ -1,8 +1,7 @@
 import React from "react"
 import UserList from "./UserList"
 import  Axios from "axios"
-import UserForm from "./UserForm"
-import { Button, Snackbar } from "@mui/material"
+import {Snackbar } from "@mui/material"
 
 
 export default class UserPage extends React.Component{
@@ -108,11 +107,7 @@ export default class UserPage extends React.Component{
 
     render(){
             return  <>  
-                        <section>
-                            <h2>Iserir Usuario</h2>
-                        </section>
-                            <UserForm action={this.insertUser}></UserForm>
-                            <p>{this.state.errorMessage}</p> 
+                                                  
                         <section>
                             <h2>Listagem de Usuarios</h2>
                            <UserList list={this.state.userlist} delete={this.deleteUser} putRequest={this.putUser}></UserList>
