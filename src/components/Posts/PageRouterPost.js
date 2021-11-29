@@ -1,21 +1,21 @@
 import React from "react";
 import {Box, Tab} from "@mui/material"
-import UserCadForm from "./UserCadForm";
 import Axios  from "axios";
-import UserList from "./UserList";
 import { TabContext, TabList, TabPanel } from "@mui/lab";
-import UserFilter from "./UserFiltro";
+import PostList from "./PostList";
+import PostCadForm from "./PostCadForm";
+import PostFilter from "./PostFiltro";
 
-export default class PageRouter extends React.Component{
+export default class PageRouterPost extends React.Component{
     constructor(props){
         super(props)
-        this.API_URL = "http://localhost:3000/api/user"
+        this.API_URL = "http://localhost:3000/api/post/user"
 
         this.state = {
-          userlist: [], 
+          postlist: [], 
           errorMessage: null,
           snack: false,
-          user:{},
+          post:{},
           tabIndex: "0"
       }
     }
@@ -113,13 +113,13 @@ export default class PageRouter extends React.Component{
       filtro += this.addFiltro("nacionalidade", filter.nacionalidade)
       filtro += this.addFiltro("sexo", filter.sexo)
     }
-    console.log(filtro);
+    console.log("Get Posts ");
 
     let users =  await Axios.get(this.API_URL + filtro)
     this.setState({
-      userlist: users.data 
-  })
-               
+      postlist: users.data 
+    })
+      console.log(users.data);         
   }
 
   InsertOrUpdade = (user)=>{
@@ -151,13 +151,13 @@ export default class PageRouter extends React.Component{
                 </TabList>
               </Box>
               <TabPanel value="0">
-                <UserList list={this.state.userlist} delete={this.deleteUser} atualizaUser={this.setUser}></UserList>
+                <PostList list={this.state.postlist} delete={this.deleteUser} atualizaUser={this.setUser}></PostList>
               </TabPanel>
               <TabPanel value="1">
-                <UserCadForm action={this.InsertOrUpdade} user={this.state.user}></UserCadForm>
+                <PostCadForm action={this.InsertOrUpdade} user={this.state.user}></PostCadForm>
               </TabPanel>
               <TabPanel value="2">
-                 <UserFilter action={this.getAllUser} user={this.state.user}></UserFilter>
+                 <PostFilter action={this.getAllUser} user={this.state.user}></PostFilter>
               </TabPanel>
             </TabContext>             
   }

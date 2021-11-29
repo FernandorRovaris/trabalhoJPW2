@@ -13,7 +13,7 @@ export default class UserList extends React.Component{
         }
 
         let listaUsuario = this.props.list.map(item => {
-           return <UserItem user={item} key={item._id} delete={()=>{this.props.delete(item._id)}} edit={()=>{this.props.atualizaUser(item)}}></UserItem>            
+           return <UserItem user={item} key={item._id} delete={()=>{this.props.delete(item._id)}} edit={()=>{this.props.atualizaUser(item)}} postar= {()=>{this.props.postar(item)}}></UserItem>            
         })
 
         return  <section>

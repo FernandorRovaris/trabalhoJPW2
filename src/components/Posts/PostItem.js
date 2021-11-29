@@ -2,7 +2,7 @@ import React from "react";
 import { TableCell, TableRow, Button} from "@mui/material";
 import moment, { now } from "moment";
 
-export default class UserItem extends React.Component{
+export default class PostItem extends React.Component{
 
     constructor(props){
         super(props)
