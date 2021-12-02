@@ -24,10 +24,9 @@ export default class PostList extends React.Component{
                     <Table>
                         <TableHead>
                             <TableRow>
-                                <TableCell>Nome</TableCell>
-                                <TableCell>Idade</TableCell>
-                                <TableCell>Nascionalidade</TableCell>
-                                <TableCell>Sexo</TableCell>
+                                <TableCell>Titulo</TableCell>
+                                <TableCell>Autor</TableCell>
+                                <TableCell>post</TableCell>                                
                             </TableRow>
                         </TableHead>
                         <TableBody>

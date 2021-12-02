@@ -25,10 +25,13 @@ export default class UserItem extends React.Component{
         
 
         return  <>
+
+        
                     <TableRow >
-                        <TableCell>{this.props.user.titulo}</TableCell>                        
-                        <TableCell>{this.props.user.autor}</TableCell>
-                        <TableCell>{this.props.user.titulo}</TableCell>
+                        <TableCell>{this.props.user.nome}</TableCell> 
+                        <TableCell>{ Math.floor(duration.asYears()) }</TableCell>
+                        <TableCell>{this.props.user.nacionalidade}</TableCell>
+                        <TableCell>{this.props.user.sexo}</TableCell>
                         <TableCell>{buttomContainer}</TableCell> 
                     </TableRow>
                     

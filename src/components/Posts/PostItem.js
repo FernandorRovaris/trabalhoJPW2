@@ -9,9 +9,7 @@ export default class PostItem extends React.Component{
     }
     
 
-    render(){
-
-      
+    render(){  
 
         let buttomDelet = <Button type="button" variant="outlined" color="error" onClick={ this.props.delete}>Deletar</Button>
         let buttomEdit = <Button type="button" variant="outlined" onClick={this.props.edit}>Editar</Button>
@@ -24,14 +22,12 @@ export default class PostItem extends React.Component{
         
 
         return  <>
-                    <TableRow >
-                        <TableCell>{this.props.user.nome}</TableCell> 
-                        <TableCell>{ Math.floor(duration.asYears()) }</TableCell>
-                        <TableCell>{this.props.user.nacionalidade}</TableCell>
-                        <TableCell>{this.props.user.sexo}</TableCell>
+                   <TableRow >
+                        <TableCell>{this.props.user.titulo}</TableCell>                        
+                        <TableCell>{this.props.user.autor}</TableCell>
+                        <TableCell> <a href={this.props.user.body}>Foto</a></TableCell>
                         <TableCell>{buttomContainer}</TableCell> 
                     </TableRow>
-                    
                 </>
     }
 }
